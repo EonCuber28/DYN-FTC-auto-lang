@@ -11,6 +11,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 
@@ -61,7 +62,7 @@ public class DynParser {
             String[] lineData;
             while ((line = reader.readLine())!=null){
                 lineData = splitLine(line);
-                if (lineData[0] == "while" || lineData[0] == "for" || lineData[0] == "def_path"){
+                if (Objects.equals(lineData[0], "while") || Objects.equals(lineData[0], "for") || Objects.equals(lineData[0], "def_path")){
                     BiConsumer<String[],Integer> func = (BiConsumer<String[],Integer>) dynFuncLookup.get(lineData[0]);
                     func.accept(lineData, lineIndex);
                 } else {
