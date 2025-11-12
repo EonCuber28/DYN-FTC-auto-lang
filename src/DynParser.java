@@ -5,10 +5,9 @@ import Telemetry.Telemetry;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.io.*;
+import java.lang.reflect.Array;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -25,6 +24,7 @@ import java.util.function.Consumer;
 */
 
 public class DynParser {
+    private final boolean debug = true;
     private Telemetry telemetry;
     // the following variables are here to allow us to index them into a json
     private final Consumer<String[]> VarDec = line -> ParseVarDec(line);
@@ -41,10 +41,16 @@ public class DynParser {
     private final List<Integer> funcLoopDepthData = new ArrayList<>();
 
     private final JSONObject dynFuncLookup = new JSONObject();
-    public void init(Telemetry telemetry){
+    public void init(Telemetry telemetry, String configName){
         this.telemetry = telemetry;
         try {
-            RAWinit();
+            try {
+                // non FTC
+                RAWinit(configName);
+            } catch (Exception e) {
+                // FTC ready
+                FTCinit();
+            }
         } catch (JSONException e) {
             // output to telemetry
             this.telemetry.addData("ERROR PROCESSING JSON FOR DYN:",e);
@@ -52,7 +58,58 @@ public class DynParser {
             throw new RuntimeException(e);
         }
     }
-    private void RAWinit() throws JSONException {
+    private void RAWinit(String configName){
+        try (BufferedReader reader1 = new BufferedReader(new FileReader("/home/eoncuber/IdeaProjects/DYN active program processor for FTC autos/DYN/"+configName+".dyn", StandardCharsets.UTF_8))){
+            // first pass on the file to parse the lines, andd seprate by spaces
+            List<String[]> parsedLines = new ArrayList<>();
+            String line;
+            System.out.println();
+            while ((line = reader1.readLine()) != null){
+                String[] lineComponents = parseLine(line);
+                parsedLines.add(lineComponents);
+            }
+            // remove any comments and blank lines
+            List<String[]> pass1 = new ArrayList<>();
+            for (int i = 0;i < parsedLines.toArray().length; i++){
+                if (!(Objects.equals(parsedLines.get(i)[0], "//") || Objects.equals(parsedLines.get(i)[0], ""))){
+                    pass1.add(parsedLines.get(i));
+                }
+            }
+            if (debug){
+                for (int x = 0;x < pass1.toArray().length; x++){
+                    System.out.print("[");
+                    for (int i = 0; i < pass1.get(x).length; i++){
+                        System.out.print('"'+pass1.get(x)[i]+'"');
+                        if (i < pass1.get(x).length-1){
+                            System.out.print(", ");
+                        }
+                    }
+                    System.out.println("]");
+                }
+            }
+        } catch (IOException e){
+            e.printStackTrace();
+        }
+    }
+    private String[] parseLine(String line){
+        // clean up the string
+        line = line.trim().replaceAll("\\s+"," ");
+        // split the line into its sectors using the spaces
+        List<String> sectors = new ArrayList<String>();
+        String currentSector = "";
+        for (int i = 0; i < line.length(); i++){
+            char currentChar = line.charAt(i);
+            if (currentChar == ' '){
+                sectors.add(currentSector);
+                currentSector = new String();
+            } else {
+                currentSector = currentSector+currentChar;
+            }
+        }
+        sectors.add(currentSector);
+        return sectors.toArray(new String[0]);
+    }
+    private void FTCinit() throws JSONException {
         makeFuncLookup();
         try {
             is = (InputStream) hardwareMap.appContext.getAssets().open(configName);

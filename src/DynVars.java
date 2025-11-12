@@ -1,9 +1,5 @@
 //import android.annotation.SuppressLint;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -30,6 +26,7 @@ public class DynVars {
     public void init(){
         simpleSubsystem Subsystem = new simpleSubsystem();
         Consumer<String[]> func1 = args -> Subsystem.start(args);
+
     }
 }
 
@@ -39,9 +36,13 @@ class DynVarFieldCords{
     public DynVarNumber PosX;
     public DynVarNumber PosY;
     // to string
-    // to prdro position
-    // to dyn field position
-    // equals
+    @Override
+    public String toString(){
+        return "Field Cord: "+name+" X:"+PosX.toString()+" Y:"+PosY.toString();
+    }
+    // to prdro position (WIP)
+    // to dyn field position (WIP)
+    // equals (WIP)
 }
 // field position
 class DynVarFieldPos{
@@ -49,37 +50,41 @@ class DynVarFieldPos{
     public DynVarNumber PosX;
     public DynVarNumber PosY;
     public DynVarNumber Heading;
-    // to dyn field cord
-    // to string
-    // pedro position
+    // to dyn field cord (WIP)
+    // to string (WIP)
+    // pedro position (WIP)
 }
 // number
 class DynVarNumber{
     public String name  = "";
     public double value = 0;
-    // to dyn string
-    // to java number
+    // to dyn string (WIP)
+    // to java number (WIP)
     // to java string
-    // set to add
+    @Override
+    public String toString(){
+        return "DYNnum: "+name+" value:"+value;
+    }
+    // set to add (WIP)
 }
 // boolean
 class DynVarBoolean{
     public String name  = "";
     public boolean value = true;
-    // to dyn string
-    // to java string
-    // to java bool
-    // equals
-    // 2 variables equal
-    // and
-    // or
-    // set to add
+    // to dyn string (WIP)
+    // to java string (WIP)
+    // to java bool (WIP)
+    // equals (WIP)
+    // 2 variables equal (WIP)
+    // and (WIP)
+    // or (WIP)
+    // set to add (WIP)
 }
 // string
 class DynVarString{
     public String name  = "";
     public String value = "";
-    // set to add
+    // set to add (WIP)
 }
 // list
 class DynVarList{

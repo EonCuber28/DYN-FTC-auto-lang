@@ -1,8 +1,11 @@
+import Telemetry.Telemetry;
+
 public class Main {
-    private DynParser parser = new DynParser();
+    private static DynParser parser = new DynParser();
+    private static Telemetry telem = new Telemetry();
     public static void main(String[] args){
-        System.out.println("Hello World");
         // load dyn
+        parser.init(telem, "Test");
         // print ending
     }
 }
