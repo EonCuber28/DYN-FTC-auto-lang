@@ -5,7 +5,7 @@ public class Main {
     private static Telemetry telem = new Telemetry();
     public static void main(String[] args){
         // load dyn
-        parser.init(telem, "Test");
+        parser.init(telem, "Docs");
         // print ending
     }
 }

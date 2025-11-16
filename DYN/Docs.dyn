@@ -194,9 +194,13 @@ TELEMETRY:
             output2telem var
         Usage:
             the var is any variable, its data will be added to telemetry output the next time it is updated.
-
-The rest of this program is a systems test for the language interpreter
+LOGICAL OPERATORS:
+    if: (WIP)
+        Syntax:
+            if (statement/boolean) start ... end
+        Usage:
+            if (reader.mind == "stupid") start
+                output2telem "you dumb ah hell"
+            end
 '''
 
-
-def_path Main start

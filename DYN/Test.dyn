@@ -1,3 +1,8 @@
+// this is a general test for the DYN programming language
+'''
+this is the formating for the multi line comments
+the triple quotes must be at the start off the line
+'''
 def_path goGoGadget start
     Num startX 0
     Num startY 0
@@ -8,7 +13,7 @@ def_path goGoGadget start
     String doneMSG "Done!"
     Bool letsGo true
     for 5 as kraken start
-        SUB endX kraken
+        SUB endX kraken to endX
     end
 
     while (endHeading < 90) start
