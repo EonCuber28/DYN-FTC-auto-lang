@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.function.Consumer;
 import DynVars.*;
 
-public class DynBuffer {
+public class DynCmdBuffer {
     public List<String> usedVariableNames = new ArrayList<>();
     // field cords
     public List<DynVarFieldCords> fieldCords = new ArrayList<>();

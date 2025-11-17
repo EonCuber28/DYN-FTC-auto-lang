@@ -1,27 +1,41 @@
 package DynVars;
 
+// DONE
+
 public class DynVarFieldCords {
-    public String name = "";
+    public String name;
     public DynVarNumber PosX;
     public DynVarNumber PosY;
     // instantiators
     public DynVarFieldCords(String name){this.name = name;}
     public DynVarFieldCords(DynVarNumber PosX, DynVarNumber PosY, String name){this.PosX=PosX;this.PosY=PosY;this.name=name;}
-    // to string
-    @Override
-    public String toString(){
+    // to debug string
+    public String toDebugString(){
         return "Field Cord: "+name+" X:"+PosX.toString()+" Y:"+PosY.toString();
     }
-    // to prdro position (WIP)
-    // to dyn field position (WIP)
-    public DynVarFieldPos toFieldPos(){
-        return new DynVarFieldPos(PosX, PosY, new DynVarNumber(name));
-    }
     // to java string
-
+    public String toString(){return "("+PosX+", "+PosY+")";}
     // to DYN string
-    public DynVarString toDYNString(){return null;}
+    public DynVarString toDYNString(){return new DynVarString(this.toString(), name);}
+    // to pedro position (WIP)
+    // to dyn field position
+    public DynVarFieldPos toFieldPos(){
+        return new DynVarFieldPos(PosX, PosY, new DynVarNumber(name), name);
+    }
     // to list
+    public DynVarList toList(){
+        DynVarList list = new DynVarList(name);
+        list.append(PosX);
+        list.append(PosY);
+        return list;
+    }
+    // to json
+    public DynVarJson toJson(){
+        DynVarJson json = new DynVarJson(name);
+        json.add("PosX", PosX);
+        json.add("PosY", PosY);
+        return json;
+    }
     // equals
     public boolean equals(DynVarFieldPos in){return (in.PosX == PosX && in.PosY == PosY);}
     public boolean equals(DynVarFieldCords in){return (in.PosX == PosX && in.PosY == PosY);}

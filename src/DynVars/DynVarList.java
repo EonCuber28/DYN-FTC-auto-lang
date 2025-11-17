@@ -5,20 +5,20 @@ import java.util.ArrayList;
 public class DynVarList {
     public String name  = "";
 
-    private final AdaptiveList indexLookup = new AdaptiveList();
+    public final AdaptiveList indexLookup = new AdaptiveList();
 
     // instantiators
     public DynVarList(String name){this.name = name;}
-
+    // get
     public <T> T get(int index){return (T) indexLookup.get(index);}
-
+    // append
     public void append(DynVarFieldCords value){indexLookup.append(value);}
     public void append(DynVarFieldPos value){indexLookup.append(value);}
     public void append(DynVarNumber value){indexLookup.append(value);}
     public void append(DynVarBoolean value){indexLookup.append(value);}
     public void append(DynVarString value){indexLookup.append(value);}
     public void append(DynVarList value){indexLookup.append(value);}
-
+    // set
     public void set(int index, DynVarFieldCords value){indexLookup.set(index, value);}
     public void set(int index, DynVarFieldPos value){indexLookup.set(index, value);}
     public void set(int index, DynVarNumber value){indexLookup.set(index, value);}
@@ -26,8 +26,10 @@ public class DynVarList {
     public void set(int index, DynVarString value){indexLookup.set(index, value);}
     public void set(int index, DynVarList value){indexLookup.set(index, value);}
     public void set(int index, DynVarJson value){indexLookup.set(index, value);}
-
+    // remove
     public void rm(int index){indexLookup.remove(index);}
+    // is equals to
+    public DynVarBoolean isEqals(DynVarList in){return new DynVarBoolean((indexLookup == in.indexLookup),name);}
 }
 class AdaptiveList<T> {
     private ArrayList<T> list = new ArrayList<>();

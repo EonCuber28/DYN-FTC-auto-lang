@@ -5,17 +5,26 @@ public class DynVarFieldPos {
     public DynVarNumber PosX;
     public DynVarNumber PosY;
     public DynVarNumber Heading;
-    public DynVarFieldPos(){
+    // instantiators
+    public DynVarFieldPos(String name){
+        this.name = name;
         PosX = new DynVarNumber(name);
         PosY = new DynVarNumber(name);
         Heading = new DynVarNumber(name);
     }
-    public DynVarFieldPos(DynVarNumber PosX, DynVarNumber PosY, DynVarNumber Heading){
+    public DynVarFieldPos(DynVarNumber PosX, DynVarNumber PosY, DynVarNumber Heading, String name){
+        this.name = name;
         this.PosX = PosX;
         this.PosY = PosY;
         this.Heading = Heading;
     }
-    // to dyn field cord (WIP)
-    // to string (WIP)
+    // to dyn field cord
+    public DynVarFieldCords toFieldCord(){return new DynVarFieldCords(PosX,PosY,name);}
+    // to debug string
+    public String toDebugString(){return "Field Position Var: "+name+" X:"+PosX+" Y:"+PosY+" Heading:"+Heading;}
+    // to java string
+    public String toString(){return "("+PosX+", "+PosY+", "+Heading+")";}
+    // to dyn string
+    public DynVarString toDynStr(){return new DynVarString(toString(), name);}
     // pedro position (WIP)
 }
