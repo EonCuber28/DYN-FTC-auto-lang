@@ -6,9 +6,10 @@ import java.util.Map;
 public class DynVarJson {
     public String name  = "";
     // the json object
-    public final Map<String, Object> data = new HashMap<>();
+    public Map<String, Object> data = new HashMap<>();
     // instantiators
     public DynVarJson(String name){this.name = name;}
+    public DynVarJson(Map<String, Object> data, String name){this.data = data; this.name = name;}
     // add key with value to object
     public void add(String key, DynVarFieldCords value){data.put(key, value);}
     public void add(String key, DynVarFieldPos value){data.put(key, value);}

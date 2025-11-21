@@ -7,8 +7,10 @@ public class DynVarFieldCords {
     public DynVarNumber PosX;
     public DynVarNumber PosY;
     // instantiators
-    public DynVarFieldCords(String name){this.name = name;}
+    public DynVarFieldCords(double state, String name){this.name = name;}
     public DynVarFieldCords(DynVarNumber PosX, DynVarNumber PosY, String name){this.PosX=PosX;this.PosY=PosY;this.name=name;}
+    public DynVarFieldCords(double PosX, double PosY, String name){this.PosX = new DynVarNumber(PosX, name);this.PosY = new DynVarNumber(PosY, name);this.name = name;}
+    public DynVarFieldCords(double[] Pos, String name){this.PosX = new DynVarNumber(Pos[0], name);this.PosY = new DynVarNumber(Pos[1], name);this.name = name;}
     // to debug string
     public String toDebugString(){
         return "Field Cord: "+name+" X:"+PosX.toString()+" Y:"+PosY.toString();

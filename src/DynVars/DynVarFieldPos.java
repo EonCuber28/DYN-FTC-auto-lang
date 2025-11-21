@@ -18,6 +18,12 @@ public class DynVarFieldPos {
         this.PosY = PosY;
         this.Heading = Heading;
     }
+    public DynVarFieldPos(double[] Pos, String name){
+        this.name = name;
+        this.PosX = new DynVarNumber(Pos[0], name);
+        this.PosY = new DynVarNumber(Pos[1], name);
+        this.Heading = new DynVarNumber(Pos[2], name);
+    }
     // to dyn field cord
     public DynVarFieldCords toFieldCord(){return new DynVarFieldCords(PosX,PosY,name);}
     // to debug string

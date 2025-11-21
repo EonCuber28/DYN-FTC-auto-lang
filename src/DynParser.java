@@ -23,6 +23,10 @@ import java.util.function.Consumer;
 */
 
 public class DynParser {
+    // dyn buffers
+    private DynVarBuffer varBuffer = new DynVarBuffer();
+    private DynCmdBuffer cmdBuffer = new DynCmdBuffer();
+    // extra variables
     private final boolean debug = true;
     private Telemetry telemetry;
     // the following variables are here to allow us to index them into a json
@@ -245,10 +249,4 @@ public class DynParser {
     private void ParseFunc(String[] line, int lineIndex) {
 
     }
-}
-class parenthesis{;
-    public void add(Object thing){}
-}
-class squareBrackets{
-    public void add(Object thing){}
 }

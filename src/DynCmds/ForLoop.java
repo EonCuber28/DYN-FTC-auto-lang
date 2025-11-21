@@ -1,5 +1,7 @@
 package DynCmds;
 
-public class ForLoop {
+public class ForLoop{
     // this should hold its own command buffer to later process
+    private Boolean running;
+
 }

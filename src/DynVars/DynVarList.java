@@ -18,6 +18,7 @@ public class DynVarList {
     public void append(DynVarBoolean value){indexLookup.append(value);}
     public void append(DynVarString value){indexLookup.append(value);}
     public void append(DynVarList value){indexLookup.append(value);}
+    public void append(DynVarJson value){indexLookup.append(value);}
     // set
     public void set(int index, DynVarFieldCords value){indexLookup.set(index, value);}
     public void set(int index, DynVarFieldPos value){indexLookup.set(index, value);}

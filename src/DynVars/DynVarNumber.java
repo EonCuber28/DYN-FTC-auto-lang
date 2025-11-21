@@ -9,15 +9,11 @@ public class DynVarNumber {
     public DynVarNumber(int in, String Name){value = in;name = Name;}
     public DynVarNumber(String Name){value = 0;name = Name;}
     // to dyn string
-    public DynVarString toDynStr(){
-        return null;//new DynVarString();
-    }
+    public DynVarString toDynStr(){return new DynVarString(toString(), name);}
     // to java number
     public double toNum(){return value;}
     // to debug string
-    public String toDebugString(){
-        return "DYNnum: "+name+" value:"+value;
-    }
+    public String toDebugString(){return "DYNnum: "+name+" value:"+value;}
     // to java string
     public String toString(){return String.valueOf(value);}
     // to dyn string
