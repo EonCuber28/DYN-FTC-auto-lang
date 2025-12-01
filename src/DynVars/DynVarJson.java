@@ -31,5 +31,6 @@ public class DynVarJson {
     // remove key and its object
     public void remove(String key){data.remove(key);}
     // equals
-    public DynVarBoolean isEqual(DynVarJson in){return new DynVarBoolean((in.data == this.data),name);}
+    public boolean equals(DynVarJson in){return (in.data == this.data);}
+    public boolean equals(Object in){return false;}
 }

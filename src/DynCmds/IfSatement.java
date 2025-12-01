@@ -6,5 +6,5 @@ public class IfSatement {
     private boolean state;
     private Object aneurysm;
     private DynVarBoolean results;
-    // this is to make git work
+    public boolean getResult(){return false;}
 }

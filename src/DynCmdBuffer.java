@@ -17,4 +17,9 @@ public class DynCmdBuffer {
     public void addCommand(PathFunc in){}
     public void addCommand(ForLoop in){}
     public void addCommand(MathOp in){}
+    // runner
+    public void process(){
+        // go though all commands in the buffer and process them using the Var Buffer
+        // depending on the command, we give it a different input
+    }
 }

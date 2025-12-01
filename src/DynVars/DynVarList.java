@@ -30,7 +30,8 @@ public class DynVarList {
     // remove
     public void rm(int index){indexLookup.remove(index);}
     // is equals to
-    public DynVarBoolean isEqals(DynVarList in){return new DynVarBoolean((indexLookup == in.indexLookup),name);}
+    public boolean eqals(DynVarList in){return (indexLookup == in.indexLookup);}
+    public boolean equals(Object in){return false;}
 }
 class AdaptiveList<T> {
     private ArrayList<T> list = new ArrayList<>();

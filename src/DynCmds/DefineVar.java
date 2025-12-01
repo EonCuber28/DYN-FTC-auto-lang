@@ -32,7 +32,7 @@ public class DefineVar {
             case "Bool": {
                 varType = type;
                 varName = name;
-                variable = new DynVarBoolean((Boolean)state, name);
+                variable = new DynVarBoolean((boolean)state, name);
             }
             case "List": {
                 varType = type;

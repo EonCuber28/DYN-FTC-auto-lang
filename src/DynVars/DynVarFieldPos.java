@@ -1,7 +1,7 @@
 package DynVars;
 
 public class DynVarFieldPos {
-    public String name = "";
+    public String name;
     public DynVarNumber PosX;
     public DynVarNumber PosY;
     public DynVarNumber Heading;
@@ -33,4 +33,9 @@ public class DynVarFieldPos {
     // to dyn string
     public DynVarString toDynStr(){return new DynVarString(toString(), name);}
     // pedro position (WIP)
+
+    // equals
+    public boolean equals(DynVarFieldPos in){return (in.PosX == PosX && in.PosY == PosY && in.Heading == Heading);}
+    public boolean equals(DynVarFieldCords in){return (in.PosX == PosX && in.PosY == PosY);}
+    public boolean equals(Object in){return false;}
 }

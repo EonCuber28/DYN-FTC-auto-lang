@@ -47,4 +47,10 @@ public class DynVarNumber {
     public void setToTan(DynVarNumber in){value = Math.tan(in.value);}
     // set to inv-tan
     public void setToItn(DynVarNumber in){value = 1/Math.tan(in.value);}
+    // equals
+    public boolean equals(DynVarNumber in){return (in.value == value);}
+    public boolean equals(double in){return (in == value);}
+    public boolean equals(int in){return (in == value);}
+    public boolean equals(float in){return (in == value);}
+    public boolean equals(Object in){return false;}
 }

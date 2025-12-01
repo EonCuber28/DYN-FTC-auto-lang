@@ -41,5 +41,6 @@ public class DynVarFieldCords {
     // equals
     public boolean equals(DynVarFieldPos in){return (in.PosX == PosX && in.PosY == PosY);}
     public boolean equals(DynVarFieldCords in){return (in.PosX == PosX && in.PosY == PosY);}
+    public boolean equals(Object in){return false;}
 
 }
