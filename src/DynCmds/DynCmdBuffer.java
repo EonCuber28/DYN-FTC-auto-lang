@@ -1,14 +1,19 @@
-import DynCmds.*;
+package DynCmds;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.function.Consumer;
 
 public class DynCmdBuffer {
     // final movemet ops
-
+    private List<MovementOp> finalMovement = new ArrayList<>();
+    //  json/hashmap fro custom commands
     // instantiators
-    public DynCmdBuffer(){}
+    public DynCmdBuffer(){
+        // add basic instantiation
+    }
     public void addCustomCommand(String command, Consumer<String[]> funcIn){
-        //
+        // add command to special json that aligns the ID's with the wanted function
     }
     // command add functions
     public void addCommand(MovementOp in){}

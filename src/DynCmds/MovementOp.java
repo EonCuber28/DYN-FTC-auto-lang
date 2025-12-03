@@ -1,6 +1,12 @@
 package DynCmds;
 
+import DynVars.DynVarFieldPos;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class MovementOp {
     String type;
-    String[] Poses;
+    List<DynVarFieldPos> Poses = new ArrayList<>();
+
 }

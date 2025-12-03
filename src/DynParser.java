@@ -1,5 +1,7 @@
 //import static org.firstinspires.ftc.robotcore.external.BlocksOpModeCompanion.hardwareMap;
 
+import DynVars.DynVarBuffer;
+import DynCmds.DynCmdBuffer;
 import Telemetry.Telemetry;
 //import org.firstinspires.ftc.robotcore.external.Telemetry;
 import org.json.JSONArray;
