@@ -94,7 +94,7 @@ public class DynParser {
                     // add to outside string
                 }
                 case ' ':{
-                    // start new sector in current list
+                    // start new sector in current list/
                 }
                 default: {
                     // add to current list
