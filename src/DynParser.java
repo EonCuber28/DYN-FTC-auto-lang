@@ -85,21 +85,6 @@ public class DynParser {
         // split the line into its sectors using the spaces, parenthesis, and square brackets
         for (int x = 0; x < line.length(); x++){
             char currentChar = line.charAt(x);
-            switch (currentChar){
-                case '(':{
-                    // start new touple thingy
-                }
-                case ')':{
-                    // end touple thing
-                    // add to outside string
-                }
-                case ' ':{
-                    // start new sector in current list/
-                }
-                default: {
-                    // add to current list
-                }
-            }
         }
         return null;
     }
@@ -183,51 +168,11 @@ public class DynParser {
     }
     private void ParseVarDec(String[] line){
         switch (line[0]) {
-            case "Num":
-                this.variables.put(line[1], new Object[]{line[2], double.class});
-            case "Bool":
-                this.variables.put(line[1], new Object[]{line[2], boolean.class});
-            case "String":
-                this.variables.put(line[1], new Object[]{line[2], String.class});
-            case "List":
-                String[] lis = Arrays.stream(line).skip(2).toArray(String[]::new);
-                String[] nLis = new String[line.length - 2];
-                for (String s : lis) {
-                    String cleanedString = s
-                            .replace("[", "")
-                            .replace("]", "")
-                            .strip()
-                            .replace(",", "");
-                    for (int i = 0; i < 3; i++) {
-                        Object o = nLis[i];
-                        if (o == null) {
-                            o = cleanedString;
-                            break;
-                        }
-                    }
-                }
-                this.variables.put(line[1], new Object[]{nLis, double.class});
-            case "Json":
-                String[] jLis = Arrays.stream(line).skip(2).toArray(String[]::new);
-                String[] jNLis = new String[line.length - 2];
-                for (String s : jLis) {
-                    String cleanedString = s
-                            .replace("{", "")
-                            .replace("}", "")
-                            .strip()
-                            .replace(",", "");
-                    for (int i = 0; i < 3; i++) {
-                        Object o = jNLis[i];
-                        if (o == null) {
-                            String[] input = s
-                                    .replace("\"", "")
-                                    .split(":");
-                            o=input;
-                            break;
-                        }
-                    }
-                }
-                this.variables.put(line[1], new Object[]{jNLis, JSONArray.class});
+            case "Num": {}
+            case "Bool": {}
+            case "String": {}
+            case "List": {}
+            case "Json": {}
         }
     }
     private void ParseMathOp(String[] line){

@@ -40,16 +40,14 @@ public class DefineVar {
                 Object[] items = (Object[]) state;
                 DynVarList barryable = new DynVarList(name);
                 for (int x = 0; x < items.length; x++){
-                    switch (items[x]){
-                        case DynVarBoolean a -> barryable.append(a);
-                        case DynVarFieldCords a -> barryable.append(a);
-                        case DynVarFieldPos a -> barryable.append(a);
-                        case DynVarJson a -> barryable.append(a);
-                        case DynVarList a -> barryable.append(a);
-                        case DynVarNumber a -> barryable.append(a);
-                        case DynVarString a -> barryable.append(a);
-                        default -> {}
-                    }
+                    Object a = items[x];
+                    if (a instanceof DynVarBoolean) {}
+                    else if (a instanceof DynVarFieldCords) {}
+                    else if (a instanceof DynVarFieldPos) {}
+                    else if (a instanceof DynVarJson) {}
+                    else if (a instanceof DynVarList) {}
+                    else if (a instanceof DynVarNumber) {}
+                    else if (a instanceof DynVarString) {}
                 }
                 variable = barryable;
             }
@@ -61,12 +59,9 @@ public class DefineVar {
             case "Num": {
                 varType = type;
                 varName = name;
-                switch (state){
-                    case int a -> variable = new DynVarNumber(a, name);
-                    case float a -> variable = new DynVarNumber(a, name);
-                    case double a -> variable = new DynVarNumber(a, name);
-                    default -> {}
-                }
+                if (state instanceof Integer) {variable = new DynVarNumber((double)state, name);}
+                else if (state instanceof Double) {variable = new DynVarNumber((double)state, name);}
+                else if (state instanceof Float) {variable = new DynVarNumber((double)state, name);}
             }
         }
     }

@@ -2,7 +2,7 @@
 '''
 this is the formating for the multi line comments
 the triple quotes must be at the start off the line
-'''
+''' technicaly this text is still in the comment, thats just how its written :)
 def_path goGoGadget start
     Num startX 0
     Num startY 0
@@ -24,13 +24,13 @@ end
 def_path test start
     output2telem "Test Started"
     RUN goGoGadget
-    FieldPos startingPos (startX, startY, startHeading)
-    FieldPos endingPos (endX, endY, startHeading)
+    FieldPos startingPos (startX startY startHeading)
+    FieldPos endingPos endX endY startHeading
     PathStartPosition startingPos
-    followBezier (startingPos, endingPos)
-    if (letsGo) start
-        goTo (endingPos)
-        turnTo (180, 30)
+    followBezier startingPos endingPos
+    if letsGo start
+        goTo endingPos
+        turnTo 180 30
         output2telem doneMSG
     end
 end

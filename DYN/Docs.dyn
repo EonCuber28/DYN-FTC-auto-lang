@@ -202,5 +202,9 @@ LOGICAL OPERATORS:
             if (reader.mind == "stupid") start
                 output2telem "you dumb ah hell"
             end
+CUSTOM COMMANDS:
+    1 important thing to know about these is that they can only take 1 argument
+    they must be passed IN CODE to the parser and tokeniser BEFORE PARSING AND TOKENIZING BEGINS
+
 '''
 
