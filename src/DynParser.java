@@ -1,10 +1,8 @@
 //import static org.firstinspires.ftc.robotcore.external.BlocksOpModeCompanion.hardwareMap;
 
-import DynVars.DynVarBuffer;
 import DynCmds.DynCmdBuffer;
+import DynVars.DynVarBuffer;
 import Telemetry.Telemetry;
-//import org.firstinspires.ftc.robotcore.external.Telemetry;
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -66,7 +64,7 @@ public class DynParser {
         }
     }
     private void RAWinit(String configName){
-        try (BufferedReader reader1 = new BufferedReader(new FileReader("/home/eoncuber/IdeaProjects/DYN active program processor for FTC autos/DYN/"+configName+".dyn", StandardCharsets.UTF_8))){
+        try (BufferedReader reader1 = new BufferedReader(new FileReader("/home/eoncuber/IdeaProjects/DYN-FTC-auto-lang/DYN/"+configName+".dyn", StandardCharsets.UTF_8))){
             // first pass on the file to parse the lines, and seprate by spaces
             List<String[]> parsedLines = new ArrayList<>();
             String line;
