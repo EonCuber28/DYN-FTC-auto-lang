@@ -203,8 +203,14 @@ LOGICAL OPERATORS:
                 output2telem "you dumb ah hell"
             end
 CUSTOM COMMANDS:
-    1 important thing to know about these is that they can only take 1 argument
-    they must be passed IN CODE to the parser and tokeniser BEFORE PARSING AND TOKENIZING BEGINS
+    cmd: (WIP)
+        Syntax:
+                                  |--------------------|optional
+            cmd customFunctionName from inVar to outVar
+        Usage:
+            the customCommand is raw text that is the ID of a function given to the parser and tokeniser BEFORE they are ran.
+            these are used to have the DYN script interact with robot subsystems and mechanical functions while in auto.
+            the method on how to add these commands are in the Tokeniser and Parsing scripts.
 
 '''
 
