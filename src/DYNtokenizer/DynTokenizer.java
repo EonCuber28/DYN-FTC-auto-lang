@@ -144,6 +144,8 @@ public class DynTokenizer {
                     // Single-line comment
                     while (peek() != '\n' && !isAtEnd()) advance();
                 } else {
+                    System.out.println(c);
+                    System.out.println(this.source);
                     throw new TokenizerException("Unexpected character '/'", line, column);
                 }
                 break;

@@ -1,10 +1,10 @@
-//this document assumes that you know basic python, lua, and java syntax and variables to a minimal extent.
+/this document assumes that you know basic python, lua, and java syntax and variables to a minimal extent.
 
 // this programming lang has the following groups of commands
 // Basic variables, and ones for FTC autos.
 // Mathematical operations
 // FTC movement commands
-// Starting/Ending declarations
+// Starting-Ending declarations
 // loop declarators
 // auto function declarators
 

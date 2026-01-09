@@ -1,5 +1,6 @@
-// this is a general test for the DYN programming language
 '''
+this is a general test for the DYN programming language
+
 this is the formating for the multi line comments
 the triple quotes must be at the start off the line
 ''' technicaly this text is still in the comment, thats just how its written :)

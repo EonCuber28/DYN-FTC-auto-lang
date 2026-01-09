@@ -241,7 +241,7 @@ compatible with the FTC SDK. In your OpMode:
             List<Token> tokens = tokenizer.tokenize();
             
             // Next: Parse tokens into executable commands
-            // DynParser parser = new DynParser(tokens);
+            // DynProcessor parser = new DynProcessor(tokens);
             // DynProgram program = parser.parse();
             
             waitForStart();
