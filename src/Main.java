@@ -18,6 +18,7 @@ public class Main {
             while (fileScan.hasNextLine()){
                 fileText += fileScan.nextLine() + "\n";
             }
+            fileScan.close();
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         }
