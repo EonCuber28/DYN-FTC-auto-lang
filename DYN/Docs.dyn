@@ -55,7 +55,7 @@ VARIABLE DEFINITION/CREATION CREATION:
         Usage:
             as said many times before, the name is the name of the variable.
             works just like normal json. to get a value with an id use the .id(id) method to.
-            the
+            the the value of an ID can be set to any variable, and can be set to a String when making a new JSON.
 MATH OPERATIONS:
     ADD: (WIP)
         Syntax:

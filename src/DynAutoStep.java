@@ -1,4 +1,4 @@
-public class DYNAutoStep {
+public class DynAutoStep {
     public enum States{
         // move
         MLN,

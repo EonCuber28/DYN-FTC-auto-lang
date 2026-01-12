@@ -21,9 +21,10 @@ public class DynProcessor {
         tokens = tokeniser.tokenize().toArray(new Token[0]);
         for (int i = 0; i < tokens.length; i++){System.out.println(tokens[i].toString());}
         // process tokens
+        processScriptTokens();
         // set variables
     }
     public void processScriptTokens(){
-        //
+        // cycle through all tokens, take note of variables, and format into
     }
 }

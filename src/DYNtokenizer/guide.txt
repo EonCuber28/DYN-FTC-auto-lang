@@ -156,7 +156,7 @@ identifier that the parser should handle specially via the "cmd" keyword:
     cmd grabSample from position to armState
 
 ================================================================================
-                    5. Error Handling (TokenizerException.java)
+                    5. Error Handling (DYNtokenizer.TokenizerException.java)
 ================================================================================
 
 When something goes wrong, the exception provides:
@@ -165,7 +165,7 @@ When something goes wrong, the exception provides:
   • Descriptive message
 
 Example:
-    TokenizerException: Tokenizer error at line 7, column 15: Unterminated string
+    DYNtokenizer.TokenizerException: Tokenizer error at line 7, column 15: Unterminated string
 
 ================================================================================
                            EXAMPLE WALKTHROUGH
@@ -273,7 +273,7 @@ The parser will:
     ├── TokenType.java          # Enum of all token types
     ├── Token.java              # Token data structure
     ├── DynTokenizer.java       # Main tokenization logic
-    ├── TokenizerException.java # Error handling
+    ├── DYNtokenizer.TokenizerException.java # Error handling
     ├── DynTokenizerExample.java# Usage examples
     └── guide.txt               # This file
 

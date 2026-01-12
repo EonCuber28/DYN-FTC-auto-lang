@@ -57,7 +57,7 @@ public class DynTokenizerExample {
             System.out.println("\n=== Tokenization Complete ===");
             System.out.println("Total tokens: " + tokens.size());
 
-        } catch (TokenizerException e) {
+        } catch (DYNtokenizer.TokenizerException e) {
             System.err.println("Tokenization failed: " + e.getMessage());
         }
     }
