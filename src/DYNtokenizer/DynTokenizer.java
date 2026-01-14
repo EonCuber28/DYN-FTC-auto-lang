@@ -40,14 +40,20 @@ public class DynTokenizer {
         keywords.put("SUB", TokenType.SUB);
         keywords.put("MUX", TokenType.MUX);
         keywords.put("DIV", TokenType.DIV);
+        keywords.put("MOD", TokenType.MOD);
         keywords.put("POW", TokenType.POW);
         keywords.put("SQR", TokenType.SQR);
         keywords.put("SIN", TokenType.SIN);
         keywords.put("invSIN", TokenType.INV_SIN);
+        keywords.put("invSin", TokenType.INV_SIN);
         keywords.put("COS", TokenType.COS);
         keywords.put("invCOS", TokenType.INV_COS);
+        keywords.put("invCos", TokenType.INV_COS);
         keywords.put("TAN", TokenType.TAN);
         keywords.put("invTAN", TokenType.INV_TAN);
+        keywords.put("invTan", TokenType.INV_TAN);
+        keywords.put("toRad", TokenType.TO_RAD);
+        keywords.put("toDeg", TokenType.TO_DEG);
 
         // Movement commands
         keywords.put("turnTo", TokenType.TURN_TO);
@@ -75,6 +81,9 @@ public class DynTokenizer {
 
         // Logical
         keywords.put("if", TokenType.IF);
+        keywords.put("and", TokenType.AND);
+        keywords.put("or", TokenType.OR);
+        keywords.put("not", TokenType.NOT);
 
         // Custom commands
         keywords.put("cmd", TokenType.CMD);
@@ -121,6 +130,16 @@ public class DynTokenizer {
             case ',': addToken(TokenType.COMMA); break;
             case '.': addToken(TokenType.DOT); break;
             case ':': addToken(TokenType.COLON); break;
+            case '+': addToken(TokenType.PLUS); break;
+            case '-':
+                if (isDigit(peek())) {
+                    number();
+                } else {
+                    addToken(TokenType.MINUS);
+                }
+                break;
+            case '*': addToken(TokenType.STAR); break;
+            case '%': addToken(TokenType.PERCENT); break;
 
             case '=':
                 addToken(match('=') ? TokenType.EQUAL_EQUAL : TokenType.EQUALS);
@@ -129,7 +148,7 @@ public class DynTokenizer {
                 if (match('=')) {
                     addToken(TokenType.NOT_EQUAL);
                 } else {
-                    throw new TokenizerException("Unexpected character '!'", line, column);
+                    addToken(TokenType.NOT);
                 }
                 break;
             case '<':
@@ -139,14 +158,29 @@ public class DynTokenizer {
                 addToken(match('=') ? TokenType.GREATER_EQUAL : TokenType.GREATER_THAN);
                 break;
 
+            case '&':
+                if (match('&')) {
+                    addToken(TokenType.AND);
+                } else {
+                    throw new TokenizerException("Unexpected character '&'. Did you mean '&&'?", line, column);
+                }
+                break;
+
+            case '|':
+                if (match('|')) {
+                    addToken(TokenType.OR);
+                } else {
+                    throw new TokenizerException("Unexpected character '|'. Did you mean '||'?", line, column);
+                }
+                break;
+
             case '/':
                 if (match('/')) {
                     // Single-line comment
                     while (peek() != '\n' && !isAtEnd()) advance();
                 } else {
-                    System.out.println(c);
-                    System.out.println(this.source);
-                    throw new TokenizerException("Unexpected character '/'", line, column);
+                    // Division operator
+                    addToken(TokenType.SLASH);
                 }
                 break;
 
@@ -179,8 +213,6 @@ public class DynTokenizer {
                     number();
                 } else if (isAlpha(c)) {
                     identifier();
-                } else if (c == '-' && isDigit(peek())) {
-                    number();
                 } else {
                     throw new TokenizerException("Unexpected character '" + c + "'", line, column);
                 }
@@ -249,13 +281,9 @@ public class DynTokenizer {
         String text = source.substring(start, current);
         TokenType type = keywords.get(text);
 
+        // Default to IDENTIFIER for unknown words (including custom commands)
         if (type == null) {
-            // Check if it's a registered custom command
-            if (customCommands.containsKey(text)) {
-                type = TokenType.IDENTIFIER;
-            } else {
-                type = TokenType.IDENTIFIER;
-            }
+            type = TokenType.IDENTIFIER;
         }
 
         tokens.add(new Token(type, text, line, column - text.length()));

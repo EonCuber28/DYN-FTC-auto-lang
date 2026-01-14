@@ -420,6 +420,38 @@ public class DynVar {
             throw new DynVarException(ID, this, "Dyn type is a non NUMBER type in OP: setToItn");
         }
     }
+    public void setToRadianConvert(DynVar IN){
+        if (IN.type == VarType.NUMBER){
+            value = Math.toRadians((double)IN.getValue());
+            type = VarType.NUMBER;
+        } else {
+            throw new DynVarException(IN.getID(), IN, "Dyn var type not compatible with number based action in op: setToRadianConvert");
+        }
+    }
+    public void setToRadianConvert(){
+        if (type == VarType.NUMBER){
+            value = Math.toRadians((double)value);
+            type = VarType.NUMBER;
+        } else {
+            throw new DynVarException(ID, this, "Dyn var type not compatible with number based action in op: setToRadianConvert");
+        }
+    }
+    public void setToDegreeConvert(DynVar IN){
+        if (IN.type == VarType.NUMBER){
+            value = Math.toDegrees((double)IN.getValue());
+            type = VarType.NUMBER;
+        } else {
+            throw new DynVarException(IN.getID(), IN, "Dyn var type not compatible with number based action in op: setToDegreeConvert");
+        }
+    }
+    public void setToDegreeConvert(){
+        if (type == VarType.NUMBER){
+            value = Math.toDegrees((double)value);
+            type = VarType.NUMBER;
+        } else {
+            throw new DynVarException(ID, this, "Dyn var type not compatible with number based action in op: setToDegreeConvert");
+        }
+    }
 
     // general
     public void init(String setType, String ID, double val) throws Exception {
@@ -610,7 +642,12 @@ public class DynVar {
                 return out+"}";
             case FIELD_CORD: return "FIELD_CORD X: "+((double[])value)[0]+" Y: "+((double[])value)[1];
             case FIELD_POS: return "FIELD_POS X: "+((double[])value)[0]+" Y: "+((double[])value)[1]+" H: "+((double[])value)[2];
-            default: return "WARNING: NO TYPE ASSIGNED TO DynVar!";
+            default: throw new RuntimeException("WARNING: NO TYPE ASSIGNED TO DynVar ID: "+ID+"!");
         }
+    }
+
+    // custom funciton interfaces
+    public <T> T toJava(){
+        return (T)value;
     }
 }

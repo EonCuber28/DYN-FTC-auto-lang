@@ -33,8 +33,9 @@ This enum defines EVERY POSSIBLE TYPE OF TOKEN in your DYN language:
 │ Variable Types  │ FIELD_COORD, FIELD_POS, NUM, BOOL,      │ FieldPos startPos (0,0,90)  │
 │                 │ STRING, LIST, JSON                      │                             │
 ├─────────────────┼─────────────────────────────────────────┼─────────────────────────────┤
-│ Math Ops        │ ADD, SUB, MUX, DIV, POW, SQR,           │ ADD x y to result           │
-│                 │ SIN, COS, TAN, etc.                     │                             │
+│ Math Ops        │ ADD, SUB, MUX, DIV, MOD, POW, SQR,      │ ADD x y to result           │
+│                 │ SIN, COS, TAN, invSin, invCos, invTan,  │ toRad degrees to radians    │
+│                 │ TO_RAD, TO_DEG                          │                             │
 ├─────────────────┼─────────────────────────────────────────┼─────────────────────────────┤
 │ Movement        │ TURN_TO, GO_TO, FOLLOW_BEZIER           │ goTo(waypoint1)             │
 ├─────────────────┼─────────────────────────────────────────┼─────────────────────────────┤
@@ -47,11 +48,14 @@ This enum defines EVERY POSSIBLE TYPE OF TOKEN in your DYN language:
 │ Literals        │ NUMBER_LITERAL, STRING_LITERAL,         │ 42, "hello", true, myVar    │
 │                 │ BOOLEAN_LITERAL, IDENTIFIER             │                             │
 ├─────────────────┼─────────────────────────────────────────┼─────────────────────────────┤
-│ Symbols         │ LPAREN, RPAREN, LBRACKET, RBRACKET,     │ ( ) [ ] , . =               │
-│                 │ COMMA, DOT, EQUALS, etc.                │                             │
+│ Symbols         │ LPAREN, RPAREN, LBRACKET, RBRACKET,     │ ( ) [ ] , . = + - * / %     │
+│                 │ COMMA, DOT, EQUALS, PLUS, MINUS,        │                             │
+│                 │ STAR, SLASH, PERCENT, etc.              │                             │
 ├─────────────────┼─────────────────────────────────────────┼─────────────────────────────┤
 │ Comparison      │ EQUAL_EQUAL, NOT_EQUAL, LESS_THAN,      │ == != < > <= >=             │
 │                 │ GREATER_THAN, LESS_EQUAL, GREATER_EQUAL │                             │
+├─────────────────┼─────────────────────────────────────────┼─────────────────────────────┤
+│ Logical         │ AND, OR, NOT                            │ and or not && || !          │
 └─────────────────┴─────────────────────────────────────────┴─────────────────────────────┘
 
 ================================================================================

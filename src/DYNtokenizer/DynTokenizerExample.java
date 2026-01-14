@@ -9,7 +9,7 @@ import java.util.List;
 public class DynTokenizerExample {
 
     public static void main(String[] args) {
-        // Example DYN script
+        // Example DYN script showcasing all tokenizer features
         String dynScript = """
             // Sample FTC auto script
             def_path main start
@@ -18,16 +18,48 @@ public class DynTokenizerExample {
                 FieldCoord waypoint1 (24, 24)
                 
                 Num speed 0.8
+                Num angle 45
+                Num angleRad 0
                 Bool isBlueAlliance true
+                Bool isReady false
+                
+                // Convert degrees to radians
+                toRad angle to angleRad
+                
+                // Trigonometric functions
+                Num sinVal 0
+                SIN angleRad to sinVal
+                COS angleRad to sinVal
+                invSin sinVal to angle
                 
                 goTo(waypoint1)
                 turnTo(180, 45)
                 
-                if (isBlueAlliance == true) start
+                // Logical operators - using keywords
+                if (isBlueAlliance and isReady) start
                     output2telem "Running blue auto"
                 end
                 
+                // Logical operators - using symbols
+                if (isBlueAlliance && not isReady) start
+                    output2telem "Waiting..."
+                end
+                
+                // Arithmetic operators
                 ADD speed 0.1 to speed
+                SUB speed 0.05 to speed
+                MUX speed 2 to speed
+                MOD angle 360 to angle
+                
+                // For loop with counter
+                for 5 as i start
+                    ADD speed 0.1 to speed
+                end
+                
+                // While loop with comparison
+                while (angle < 90) start
+                    ADD angle 1 to angle
+                end
                 
                 cmd grabSample from samplePos to armPos
             end

@@ -18,6 +18,7 @@ public enum TokenType {
     SUB,
     MUX,
     DIV,
+    MOD,
     POW,
     SQR,
     SIN,
@@ -26,6 +27,8 @@ public enum TokenType {
     INV_COS,
     TAN,
     INV_TAN,
+    TO_RAD,
+    TO_DEG,
 
     // Movement commands
     TURN_TO,
@@ -53,6 +56,9 @@ public enum TokenType {
 
     // Logical
     IF,
+    AND,
+    OR,
+    NOT,
 
     // Custom commands
     CMD,
@@ -77,6 +83,11 @@ public enum TokenType {
     DOT,
     EQUALS,
     COLON,
+    SLASH,
+    STAR,
+    PERCENT,
+    PLUS,
+    MINUS,
 
     // Comparison operators
     EQUAL_EQUAL,

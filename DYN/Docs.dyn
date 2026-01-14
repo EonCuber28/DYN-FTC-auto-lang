@@ -8,6 +8,8 @@
 // loop declarators
 // auto function declarators
 
+// all trigonometric functions will be handled in radians
+
 '''
 VARIABLE DEFINITION/CREATION CREATION:
     FieldCoord: (WIP)
@@ -57,78 +59,106 @@ VARIABLE DEFINITION/CREATION CREATION:
             works just like normal json. to get a value with an id use the .id(id) method to.
             the the value of an ID can be set to any variable, and can be set to a String when making a new JSON.
 MATH OPERATIONS:
-    ADD: (WIP)
+    Add: (WIP)
         Syntax:
-            ADD val1 val2 to var
+            Add val1 val2 to var
         Usage:
             var is where the calculation is outputed
             val1 and val2 are the inputs to the operation.
-    SUB: (WIP)
+    Sub: (WIP)
         Syntax:
-            SUB val1 val2 to var
+            Sub val1 val2 to var
         Usage:
             var is where the calculation is outputed
             val1 and val2 are the inputs to the operation.
-    MUX: (WIP)
+    Mux: (WIP)
         Syntax:
-            MUX val1 val2 to var
+            Mux val1 val2 to var
         Usage:
             var is where the calculation is outputed
             val1 and val2 are the inputs to the operation.
-    DIV: (WIP)
+    Div: (WIP)
         Syntax:
-            DIV val1 val2 to var
+            Div val1 val2 to var
         Usage:
             var is where the calculation is outputed
             val1 and val2 are the inputs to the operation.
-    POW: (WIP)
+    Pow: (WIP)
         Syntax:
-            POW val1 val2 to var
+            Pow val1 val2 to var
         Usage:
             var is where the calculation is outputed
             val1 and val2 are the inputs to the operation.
-    SQR: (WIP)
+    Sqr: (WIP)
         Syntax:
-            SQR val to var
+            Sqr val to var
+            or
+            Sqr val           // this set the val to the result of the calculation
         Usage:
             val is the inputed value
             var is where the ouput goes.
-    SIN: (WIP)
+    Sin: (WIP)
         Syntax:
-            SIN val to var
+            Sin val to var
+            or
+            Sin val            // this set the val to the result of the calculation
         Usage:
             val is the inputed value
             var is where the ouput goes.
-    invSIN: (WIP)
+    invSin: (WIP)
         Syntax:
-            invSIN val to var
+            invSin val to var
+            or
+            invSin val            // this set the val to the result of the calculation
         Usage:
             val is the inputed value
             var is where the ouput goes.
-    COS: (WIP)
+    Cos: (WIP)
         Syntax:
-            COS val to var
+            Cos val to var
+            or
+            Cos val            // this set the val to the result of the calculation
         Usage:
             val is the inputed value
             var is where the ouput goes.
-    invCOS: (WIP)
+    invCos: (WIP)
         Syntax:
-            invCOS val to var
+            invCos val to var
+            or
+            invCos val           // this set the val to the result of the calculation
         Usage:
             val is the inputed value
             var is where the ouput goes.
-    TAN: (WIP)
+    Tan: (WIP)
         Syntax:
-            TAN val to var
+            Tan val to var
+            or
+            Tan val           // this set the val to the result of the calculation
         Usage:
             val is the inputed value
             var is where the ouput goes.
-    invTAN: (WIP)
+    invTan: (WIP)
         Syntax:
-            invTAN val to var
+            invTan val to var
+            or
+            invTan val           // this set the val to the result of the calculation
         Usage:
             val is the inputed value
             var is where the ouput goes.
+    toRad: (WIP)
+        Syntax:
+            toRad val to var
+            or
+            toRad val           // this set the val to the result of the calculation
+        Usage:
+            converts val to radians from degrees, and sets var to the output.
+    toDeg: (WIP)
+        Syntax:
+            toDeg val to var
+            or
+            toDeg val           // this set the val to the result of the calculation
+        Usage:
+            converts val into degrees from degrees, and sets var to the ouput.
 BASIC MOVEMENT COMMANDS:
     turnTo: (WIP)
         syntax:
@@ -171,12 +201,6 @@ LOOPS:
             while Bool Wstart ... Wend
         usage:
             the code in the while loop will be ran until the given Bool becomes false
-    for: (WIP)
-        syntax:
-            for number/list as value start ... end
-        Usage:
-            the number MUST be a whole number with no decimals, and the value will be set to the current loop count.
-            the list will be processed element by element and the value will be set to the current element
 PATH DECLARATORS:
     def_path: (WIP)
         syntax:
