@@ -31,7 +31,7 @@ public enum TokenType {
     TO_DEG,
 
     // Movement commands
-    TURN_TO,
+    TURN_TO, 
     GO_TO,
     FOLLOW_BEZIER,
 
